@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+    <script>
+        localStorage.setItem('java','tuan');
+        //json
+        function abc(action){
+            console.log(abc[action]);
+        }
+        //json là 1 kiểu dữ liệu
+        var abc = {
+        name : "tuan",
+        tuoi : "18",
+        truong: "doi",
+        subjects: ['toan','van','anh'],
+        print: function(){
+            return 'kieu du lieu string';
+        },
+        //object
+        pest:{
+            type:{
+                name:'cat',
+                foot:4
+            }
+        } 
+        
+    };
+    var arr = ["name","tuoi","truong"];
+    //var arr = Object.(keys.person);
+    for(var i = 0; i<= arr.length;i++){
+        console.log( Person[arr[i]] );
+    }
+    // cách lấy  1 phần tử :console.log(person["name"])
+    </script>
+    local storage (base) lưu tại application
+    session storage (base tạm thời)
+    localStorage.setitem("tên local storage") thêm vào
+    localStorage.getitem("tên local storage") lấy ra
+    JSON.parse(); string => Object(Json) 
+    JSON.stringify; Object(Json) => string
+
+
+    tìm hiểu về : Design Pattern
+    prototype :cấu trúc
+    bao gồm key and value (key:value)
+    tìm hiểu import js to js 
+</body>
+</html>

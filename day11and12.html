@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Color</title>
+</head>
+
+<body>
+    <input type="text" id="work" placeholder="nhập công việc"/>
+    <select name="" id="select">
+        <option value="Todo" id = "Todo">To do</option>
+        <option value="Done" id="Done">Done</option>
+        <option value="Cancel" id="Cancel">Cancel</option>
+    </select>
+    <button onclick="add()">Thêm</button>
+    <button onclick="check()" >check</button>
+    <table border="1">
+        <thead>
+            <tr>
+                <td>Công Việc</td>
+                <td>Status</td>
+                <td>Time</td>
+            </tr>
+        </thead>
+        <tbody id="table">
+            
+        </tbody>
+    </table>
+    
+    <script language="javascript">
+        var x ="";
+        
+        function add(){    
+            var a = document.getElementById("work").value;
+            var b = document.getElementById("select").value;
+            var today = new Date();
+            var h = today.getHours();
+            //điều kiện , true : false 
+            m = m < 10 ? "0" +m : m;
+            h = h < 10 ? "0" +h : h;
+            var time = (today.getUTCHours()+7) +":"+today.getUTCMinutes()+":"+(today.getUTCSeconds()+10);
+            var i = "0";
+            x = "<tr id = 'tr"+i+"'><td>"+a+"</td><td>"+b+"</td><td>"+time+"</tr>";
+            
+        }
+        
+        // check
+        // sử dụng setInterval với function setColor 1s 1 lần
+        var myVar = setInterval(setColor, 1000);
+        function setColor() {
+            
+            var time = document.getElementById("span").innerText;
+            var b = document.getElementById("result_status").innerText;
+            var today = new Date();
+            var newTime = today.getUTCSeconds();
+            // nếu status là done auto xanh
+            // status to do có time > time hiện tại (newTime) đỏ
+            // status to do có time < time hiện tại (newTime) xanh 
+            if (b == 'Done') {
+                document.getElementById("result_status").style.background = "green";
+            } 
+            else if(b == 'Cancel') {
+                document.getElementById("result_status").style.background = "red";
+            }
+            else if (newTime <= time){ 
+                document.getElementById("result_status").style.background = "green";
+                
+            } else{
+                document.getElementById("result_status").style.background = "red";
+                document.getElementById("result_status").innerHTML = "Cancel";
+            }
+        }
+// lấy time get-outer
+// dùng vòng lặp for để thêm id cho tr
+// dung vòng lặp cho các tr query select all - trỏ vào từng td một,var time = td[2]
+// tách phút giờ vs giây : split để tách dấu ":" 
+//so giờ vs giờ , so phút vs phút , so giây với giây
+// trường hợp cộng 59 + 1 = 00 và tăng 1 giờ 
+// f11 đi sâu vào function được gọi đến
+// f10 đi qua không vào code trong function được gọi đến
+// cộng 1: !isBonus?0:isBonus
+// == so sánh về giá trị, === so sánh cả kiểu dữ liệu
+// loop through tr in table javascript (lấy dữ liệu trong table)
+// nth - child, nth event, ....
+// lấy tr dùng jquery : $('tbody tr')
+//  for (var i = 0; i<$('tbody tr').length;i++ ).each(function(){
+//     $(this).find('td:eq(2)')    this trong trường hợp này đại diện cho tr
+// })
+// var a = "21 : 22 : 34";
+// b = a.split ( b = ["21", "22", "34"])
+// lấy ra so sánh : b[0] > new Date().gethours() thì......
+// lấy ra so sánh : b[1] > new Date().getminutes() thì......
+
+        
+    </script>
+</body>
+</html>

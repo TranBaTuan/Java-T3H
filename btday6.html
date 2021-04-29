@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstrap.min.css" rel="stylesheet"  />
+    <title>Bootstrap</title>
+</head>
+<style>
+    .title {
+        display: flex;
+        justify-content: center;
+    }
+    .square {
+        padding-top: 70px; /*thụt xuống 70px*/
+        display: flex;
+    }
+    .square-detail {
+        height: 30px;
+        width: 30px;
+        background-color: black;
+        display: flex;
+        border-radius: 50%; /*chỉnh tròn điều kiện white height = nhau*/
+        justify-content: flex-end;
+    }
+    .video{
+            width: 100%;
+            height: 550px;  
+        }
+    @media (max-width: 576px) {
+        .video{
+            display: none;
+        }
+
+    }
+</style>
+<body>
+    <div class="title">
+        <div>
+            ***Design***
+        </div>
+    </div>
+    <div class="">
+        <!--body-->
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 mt-3 col-sm-6 ">
+                    <!-- 3 dấu chấm -->
+                    <div class="square">
+                        <div class="square-detail" style="opacity: 1;"></div>
+                        <div class="square-detail" style="opacity: 0.6;"></div>
+                        <div class="square-detail" style="opacity: 0.3;"></div>
+                    </div>
+                    <!-- tiêu đề -->
+                    <div>
+                        <h1>break your limit to get high exp.</h1>
+                    </div>
+                    <!-- nội dung -->
+                    <div>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                        Repellendus porro assumenda adipisci ipsum quis veniam placeat,
+                        aliquid esse? Saepe at facilis quaerat, consectetur nemo earum facere perferendis dolorem quae enim
+                        quasi distinctio vel amet aperiam? Tempora laudantium vero sed
+                        cupiditate aspernatur rem modi accusamus, optio pariatur,
+                        hic quia ipsum doloribus debitis inventore soluta, consequuntur dicta.
+                        Eaque provident et quidem architecto labore cum est mollitia quis eligendi veniam
+                        esse voluptates pariatur distinctio, non earum, in nemo dignissimos sunt! Vel,
+                        doloribus alias. Dolorem unde quibusdam minus aspernatur est corrupti adipisci amet mollitia,
+                        maiores consequuntur in enim nihil maxime blanditiis provident, ea saepe.
+                    </div>
+                    <div class="btn">
+                        <!-- nút -->
+                        <button class="btn-default">
+                            Discovery Now
+                        </button>
+                    </div>
+                </div>
+                <div class="col-xs-12 mt-3 col-sm-6 ">
+                    <video class="video" controls>
+                        <source src = "video.mp4" type="video/mp4" >
+                    </video>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .pass{
+        color: green;
+    }
+    .fail{
+        color: red;
+    }
+</style>
+<body>
+    <div id="main"></div>
+    <input id = "mark"/>
+    <!-- onkeyup="" là nhập k cần nhấn check thêm vào trong input -->
+    <button onclick="checkMark()" id="btn-Check" >Check</button> 
+    <script>   
+        // var abc = +"9"; (thêm dấu cộng trước "" để hiểu là kiểu số)
+        //tạo sự kiện
+        /*các sự kiện: click focus keydown keypress active blur keyup scroll change */
+        function checkMark(){
+        //lấy dl input
+        var mark = document.getElementById("mark").value;
+        makeColor=mark > 8? "pass":"fail";
+        var ten='<h1 class="'+makeColor+'">TranBaTuan</h1>'
+        document.getElementById("main").innerHTML=ten;
+        }
+        // cách 2 về bắt sự kiện: document.getElementById(btn-Check).addEventListener("click",checkMark());
+    </script>
+</body>
+</html>

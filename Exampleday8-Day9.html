@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemple Day 8</title>
+</head>
+<body>
+    <div id="main"></div>
+    <select id="list"></select>
+    <script>
+        // document.getElementsByTagName() trả về dữ liệu kiểu mảng
+        // ví dụ về innerTEXT
+        // document.getElementById("main").innerText="<h1>Tran Ba Tuan</h1>";
+        // cách 2 về innerHTML: document.getElementById("main").innerHTML="<h1>Tran Ba Tuan</h1>";
+        // ví dụ về innerHTML
+        var h1 = "<h1>Trần Bá</h1><h3>Tuấn</h3> "
+        //thêm 1 thẻ i nội dung dev
+        h1 += "<i class = 'pass fail'>Dev</i>" // hiểu là thẻ i có class là pass và fail, để css
+        document.getElementById("main").innerHTML=h1;
+        /* khai báo 1 options rỗng (để ngoài vòng for)*/ 
+        var options = "";
+        /*vòng lặp */
+        for(var i = 1800; i <= 2021; i++){
+            /*cộng chuỗi*/
+            options = options + "<option>"+i+"</option>"; /*có thể viết thành options += "<options>"+i+"</options>" (ưu tiên hơn)*/
+        }
+        /*gán giá trị của chuỗi cho thẻ options (lên để ở ngoài vòng for)*/
+        document.getElementById("list").innerHTML=options;
+    </script>
+    innerHTML : truyền nội dung vào thẻ html nào đó và hiểu là "truyền vào có cả thẻ html"
+    innerText : như trên nhưng hiểu là "truyền vào chỉ có chữ"
+    <hr>
+    debug: dùng lệnh debugger;
+    F12 : bật lên trước khi F5 trang cần debug
+    F10 : đi tiếp
+    <hr>
+    các phần tử trong mảng cách nhau bởi dấu phẩy
+    khai báo mảng:
+    var arr = [];
+    lấy chiều dài mảng (số phần tử trong mảng):
+    arr.length 
+    điểm kết thúc: chiều dài - 1 = arr.length - 1
+    Index : vị trí của các phần tử trong mảng được tính từ 0
+    <script>
+        var a = ["tuan","hoang"]
+        /*
+        a.length = 3
+        a[0] = tuan
+        a.[1] = hoang
+        a.[2] = underfine
+        */
+    </script>
+    Back End <=> Front End bằng json
+    <hr>
+    if else chạy if thì k vào else 
+    nhiều if chạy hết
+    biến thể khác
+    Switch(biến là điểm){
+        case 0: làm gì đó .....; breck or return
+        case 4: .....;  breck or return
+        case 6: .....;  breck or return
+        case 8: .....;  breck or return
+        case 10: .....; breck or return
+        default: .....; (dành cho những trường hợp k thuộc các case) breck or return
+    }
+    <a href="testday9.html">ví dụ</a>
+    event?true:false 
+    mark>8?"pass":"fail"
+    <hr>
+    tìm hiểu thêm a* , a**
+    <a href="btday9.html"> Bài Tập</a>
+</body>
+</html>

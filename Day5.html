@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive and Variable</title>
+</head>
+<body>
+    @media only screen and (max-width: 600px) {
+        body {
+          background-color: lightblue;
+        }
+      }
+    phải có only screen nếu k nó sẽ nhảu lung tung
+    (min-width: 600px) : lớn hơn hoặc = 600px thì sẽ ăn css
+    (max-width: 600px) : nhỏ hơn hoặc = 600px thì sẽ ăn css
+    sẽ có quy chuẩn riêng của đt, laptop,.......
+    mobile: min 586px max 600px 
+    ipad: min 768px max 789px
+    ipad pro: min 998px
+    Laptop: min 1100px 
+    thằng nào cần thay đổi thì viết vào media 
+    
+    <style>
+        .A{
+            color: aqua; /*không cần viết màu vào css gốc*/
+            font-size: 16px;
+        }
+        @media only screen and (max-width: 586px){
+            .A{
+                color: blue;
+            }
+        }
+        @media only screen and (max-width: 1100px){
+            .A{
+                color: red;
+            }
+        }
+    </style>
+    <style>
+        /*Small Mobile*/
+        @media (max-width: 576px) {  }
+        /*Large Mobile*/
+        @media (min-width: 576px) {  }
+        /*Ipad*/
+        @media (min-width: 768px) {  }
+        /*Ipad Pro*/
+        @media (min-width: 992px) {  }
+        /*Laptop*/
+        @media (min-width: 1100px) {  }
+    </style>
+    ***Variable***
+    
+    <style>
+        .Var{
+            color: var(--color);
+        }
+
+        
+        /* ngày thì màu chữ của phần ăn class Var sẽ là black đêm thì sẽ lấy chữ là white*/
+        .day{
+            --color:black;
+        }
+        .night{
+            --color:white;
+        }
+    </style>
+    ***animation***<br>
+    <style>
+        .btn-default{
+            height: 140px;
+            width: 100px;
+            background-color: aqua;
+            color: black;
+            border:  solid 1px black; /*1 đường viền 1px màu đen */
+            transition: min-width 10s ease-in-out, background-color 2s ease-in-out ;/*transittion: điều chỉnh độ mượt, chiều rộng  10s dài hết trang 100% màu thì 2s đổi sang brown*/
+        }
+        .btn-default:hover{ /*cho vào vùng của nó .div:hover thì chỉ cần cho con chuột vào vùng div đó là k bị trở về ban đầu*/
+            min-width: 100%;
+            background-color: brown;
+        }
+        @keyframes name{
+            0%{
+
+            }
+            50%{
+
+            }
+            100%{
+
+            }
+            /*cách 2*/
+            form{
+                
+            }
+            to{
+
+            }
+        }
+        
+    </style>
+    <button class="btn-default">Home</button>
+    **tìm hiểu pseudo**
+    .A::before : chèn 1 số nội dung vào phần trước của 1 phần tử
+        after : chèn 1 số nội dung vào phần sau của 1 phần tử
+        hover : Chọn các liên kết khi di chuột qua
+        focus : thẻ input nào được chọn thì nhận css
+        active : Chọn liên kết hoạt động
+        marker : chọn các điểm dấu của các mục danh sach. <a href="Day1.html">Ví dụ Example</a> 
+        selection : mod về color,background,cursor(con trỏ) và outline 
+        <style>
+        ::placeholder{
+            color: blue;
+        }
+        input:focus {
+            background-color: yellow;
+        }
+        </style>
+        placeholder : giữ chỗ ví dụ <input type="text" placeholder="first name" />
+        shadow
+        link  : Chọn tất cả các liên kết không được truy cập
+     Lưu Ý:   a:hover PHẢI đứng sau a:link và a:visited trong định nghĩa CSS để có hiệu quả! 
+     a:active PHẢI đứng sau a:hover định nghĩa CSS để có hiệu quả!
+      Tên lớp không phân biệt chữ hoa chữ thường.
+</body>
+</html>

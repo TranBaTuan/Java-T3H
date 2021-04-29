@@ -1,0 +1,13 @@
+Git flow
+Git command line
+https://www.w3schools.com/
+https://css-tricks.com/
+https://codepen.io/
+
+https://flexboxfroggy.com/
+Thu 3 Thu 5 6h30 vào
+
+Ctrl K F can le
+div.hinh*5 (5 the div co class la 
+alt + click = chon nhieu cho
+ctrl + k + c comment code

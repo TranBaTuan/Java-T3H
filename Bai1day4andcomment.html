@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai1</title>
+</head>
+<style>
+    body {
+        margin: 0px;
+    }
+    .header{
+        display: flex; /* chia 2 bên*/
+        align-items: center; /* chỉnh background cho vừa với nội dung*/
+        flex-wrap: wrap; /*không làm mất kích thước height với widht quy định trước bằng các phân vùng xuống dòng*/
+        justify-content: space-between; /* các mục sẽ có khoảng trống ở giữa */
+        /* align-items: stretch; dãn ra và cao bằng (theo chiều dọc)*/
+        /*  float : left; vùng chuyển sang bên trái còn lại ở bên phải
+            flex: 1; to bằng nhau
+            flex-basis: 200px; rộng của thẻ đó = 200px
+            flex-direction: row-reverse; đặt các mục bên trong div theo hướng ngược lại
+            flex-direction: column; chỉnh 2 cột thành 2 hàng
+            flex-flow: row-reverse wrap; đặt các phần tử bên trong theo thứ tự ngược lại và cân bằng chúng
+            flex-shrink: 3; phần tử đó co lại 3 lần so với các phần tử còn lại
+            order = 1 ; đặt vùng đó đứng thứ 1
+            align-self: center; căn vùng div vào giữa       
+            margin: 25px 50px 75px 100px;
+                top margin is 25px
+                right margin is 50px
+                bottom margin is 75px
+                left margin is 100px
+            justify-content : căn chỉnh nội dung (theo chiều ngang)
+            flex (viết tắt của 3 : basis grow shrink)
+            GG : Flex css trick
+                */
+    }
+    .block{
+        height: 140px;
+        background-color: black;
+        flex-grow: 1;
+        margin: 10px;
+        /* flex-grow:1 (các cột to = nhau) 2 (1 cột to = 2 các cột khac) 3 (cột ăn css to = 3 các cột khác)*/
+    }
+    .header_body{
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .block.left{
+        width: 23%   ;
+        float: left;
+        color: #c3c3c3;
+    }
+    .block.right{
+       /* justify-content: flex-end;
+        float: right;
+        color: aliceblue; */
+        float: right;
+        width: 23%;
+        color: #c3c3c3;
+    }
+    .block.bottom{
+        display: flex;
+        justify-content: center;
+    }
+    
+    
+</style>
+<body>
+    <div class="header">
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+    </div>
+    <div class="header_body">
+        <div class="block left">abc</div>
+        <div class="block right">xyz</div>
+    </div>
+    <br>
+    <div class="block bottom">mng</div>
+</body>
+</html>

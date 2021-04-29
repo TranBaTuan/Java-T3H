@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .color{
+        color: red;
+
+    }
+</style>
+<body>
+    chọn phần tử -> lấy vị trí -> lấy phần tử trong mảng -> update -> thêm vào mảng ở vị trí mới -> create (innerHTML)
+    System : hệ thống
+    changes : thay đổi
+    Json :là 1 kiểu dữ liệu, FE <=phải chuyển qua dạng Json=> BE ; JavsScript dùng bằng XML HTTP Request,Axios; Jquery dùng bằng Ajax
+    API : là đường dẫn url để FE chỉ đến và sử dụng function tại BE (được tạo tởi BE)
+    <br>
+    <div>Phụ Huynh - Học Sinh - Lớp</div>
+    <div id="school"></div>
+    <script>
+        var school = {
+            name:'T3H',
+            Address:'Hồ Tùng Mậu',
+            Class:[{
+                name:'A1',
+                room:'A506',
+                total:'30',
+                student:[{
+                    name:'Trần Bá Tuấn',
+                    age:'18',
+                    COCC: function(){ 
+                        var arr = ['ten phụ huynh 1','ten phụ huynh 2'];
+                        return arr.toString(); 
+                    }
+                },
+                {
+                    name:'Phạm Hoàng Ân',
+                    age:'18',
+                    COCC: function(){
+                        var arr = ['ten phụ huynh 3','ten phụ huynh 4'];
+                        return arr.toString();
+                    }
+                },
+                {
+                    name:'Nguyễn Minh Trí',
+                    age:'18',
+                    COCC: function(){
+                        var arr = ['ten phụ huynh 5','ten phụ huynh 6'];
+                        return arr.toString();
+                    }
+                }]
+            },
+            {
+                name:'A2',
+                room:'A505',
+                total:'35',
+                student:[{
+                    name:'Nguyễn Văn A',
+                    age:'18',
+                    COCC: function(){
+                        var arr = ['ten phụ huynh A','ten phụ huynh B'];
+                        return arr.toString();
+                    }
+                },
+                {
+                    name:'Trần Văn B',
+                    age:'18',
+                    COCC: function(){
+                        var arr = ['ten phụ huynh C','ten phụ huynh D'];
+                        return arr.toString();
+                    }
+                },
+                {
+                    name:'Hoàng Trung C',
+                    age:'18',
+                    COCC: function(){
+                        var arr = ['ten phụ huynh E','ten phụ huynh F'];
+                        return arr.toString();
+                    }
+                }]
+            }],
+        };
+        // thêm data trên session Storage khi có function
+        sessionStorage.setItem('LJAVA2102E',JSON.stringify(school,function(key, value) {
+            if (typeof value === 'function') {
+                return value.toString();
+            } else {
+                return value;
+            }
+            }));
+        // lấy data từ session Storage, khi có cả function 
+        var object = [];
+        object = JSON.parse(sessionStorage.getItem('LJAVA2102E'));
+        
+        var sc = "";
+        for(var i = 0;i<object.Class.length; i++){
+            
+            for(var j = 0;j<object.Class[i].student.length;j++){
+                debugger;
+                
+                // cách để lấy giá trị của function trên session Storage
+
+                var getFunction = eval("(" + object.Class[i].student[j].COCC + ")");
+                var listPH = getFunction();
+                debugger;
+                for(var k =0; k<listPH.length;k++){
+                sc += listPH +"-"+ object.Class[i].student[j].name + "- <span class='color'> Class: " +object.Class[i].name +"</span><br>";
+                document.getElementById("school").innerHTML=sc;
+                }
+            }
+            
+        }
+    </script>
+
+</body>
+</html>

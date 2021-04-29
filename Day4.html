@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout</title>
+</head>
+<style>
+    body {
+        margin: 0px;
+    }
+
+    .name {
+        height: 140px;
+        background-color: black;
+        flex: 1;
+        margin: 10px;
+        flex-shrink: 0;
+        color: aliceblue;        
+    }
+    .name.double{
+        flex-basis: calc(calc(100%-20%px)/3 + 5px) ; 
+    }
+    .name0 {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+   
+</style>
+<body>
+    Column chỉ có chữ (ưu tiên)<br>
+    Float khó khăn khi có nhiều cột(luôn đi kèm với clear )<br>
+    Grid (nên dùng ưu tiên số 1 (nhưng k chạy trên IE internet))<br>
+    Flex (nên dùng) tự động căn chỉnh các vùng cho bằng nhau (tìm hiểu 7 flex)<br>
+
+
+    <div>
+        <!-- hàng 1 -->
+        <div class="name0">
+                <!-- cột 1 -->
+                <div class="name">
+                    Tiêu Đề A
+                </div>
+                <!-- cột 2 -->
+                <div class="name">
+                    Tiêu Đề B
+                </div>
+                <!-- cột 3 -->
+                <div class="name">
+                    Tiêu Đề C
+                </div>
+        </div>
+        <!-- hàng 2 -->
+        <div class="name0" >
+            <!-- cột 1 -->
+            <div class="name double">
+                Hình ảnh Y
+            </div>
+            <!-- cột 2 -->
+            <div class="name">
+                Nội dung Z
+            </div>
+        </div>
+    </div>
+Bài 4 dùng flex wrap***
+
+</body>
+
+</html>

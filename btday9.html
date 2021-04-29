@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Họ:
+    <input id="firstName" />
+    Tên: 
+    <input id="lastName" />
+    <button onclick="add()">Thêm</button>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Họ</th>
+                <th>Tên</th>
+            </tr>
+        </thead>
+        <tbody id="table">
+
+        </tbody>
+    </table>
+
+    <script>
+        var a = "";
+        function add(){
+            var first = document.getElementById("firstName").value;
+            var last = document.getElementById("lastName").value;
+            a = a + "<tr><td>" + first + "</td>" + "<td>"+last+"</td></tr>";
+            document.getElementById("table").innerHTML=a; 
+        }
+    </script>
+</body>
+</html>

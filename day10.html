@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- chỉ số và >= 0 -->
+    Number: <input type="number" id="number" min="0" >
+    <!-- dùng để tìm kiếm -->
+    current: <input type="number" id="search" >
+    <!-- dùng để swap -->
+    New: <input type="number" id = "newValue" min="0" >
+    
+
+
+    <!-- nếu nhập 10 cộng tổng từ 0 đến 10 -->
+    <button onclick="sum()">Sum</button>
+    
+    <!-- nhập vào current để cho ra giá trị của dãy number nếu k có thì hiển thị k tồn tại -->
+    <button onclick="find()">Find</button>
+
+    <!-- đảo ngược mảng được tạo ra bởi dãy số của number -->
+    <button onclick="reverse()">Reverse</button>
+
+    <!-- đổi vị trí dãy nghịch đảo theo số thứ tự nhập trong New trong  nếu k có thì hiển thị ra k tồn tại -->
+    <button onclick="swap()">Swap</button>
+
+    <!-- chạy hết tất cả -->
+    <button onclick="all(sum(),find(),reverse(),swap())">All</button>
+    <!-- xóa hết tất cả -->
+    <button onclick="document.getElementById('number').value='';
+                     document.getElementById('search').value='';
+                     document.getElementById('newValue').value='';">Clear</button>
+    <br>
+    <h2>result</h2>
+    Sum : <span id="sum_result"></span>
+    <br>
+    Find : <span id="find_result"></span>
+    <br>
+    Reverse : <span id="reverse_result"></span>
+    <br>
+    Swap : <span id="swap_result"></span>
+    
+    <script>
+        
+        // //calculator điều hướng các sự kiện khi bấm button
+        // function caclculator (action){
+        //     //dùng switch thay cho if else
+        //     switch(action){
+        //         case 'sum': document.getElementById("number").value;
+        //         break;
+        //         case 'find':
+        //         break;
+        //         case 'reverse':
+        //         break;
+        //         case 'swap':
+        //         break;
+        //         default :
+        //         break;
+        //     }
+        // }
+        //make value xử lý các yêu cầu khi đã được điều hướng
+        // function makeValue (action,number,search,newValue){
+        //     var arr = makearray(number);
+        //     switch(action,number,search,newValue){
+        //         case 'Sum':
+        //                     var sum = 0;
+        //                     for(var i = 0;i<=number;i++){
+        //                             sum = sum + i;
+        //                     }
+        //                     document.getElementById("sum_result").innerHTML=sum;
+        //         break;
+        //         case 'Find':
+        //         break;
+        //         case 'Reverse':
+        //         break;
+        //         case 'Swap':
+        //         break;
+        //         default :
+        //         break;
+        //     }
+        // }
+        // tạo mảng
+        
+        //Sum có thể dùng reduce
+        function sum(){
+            var nb = document.getElementById("number").value;
+            var sum = 0;
+                 for(var a = 0;a<=nb;a++){  
+                sum = sum + a;
+                } 
+            document.getElementById("sum_result").innerHTML=sum;       
+        }
+        //find    
+        function find(){
+            var search = +document.getElementById("search").value;
+            var number = document.getElementById("number").value;
+            // var arr = [];
+            // for(var i = 0; i<= number;i++){
+            //     arr.push(i);
+            // }
+            var arr = makearray(number);
+            if (search<=number) {
+                if (search>=0) {
+                    document.getElementById("find_result").innerHTML= arr.indexOf(search);
+                } else {
+                    document.getElementById("find_result").innerHTML= "nhập current >= 0 bạn êi";
+                }
+                
+            } else {
+                document.getElementById("find_result").innerHTML= "nhập current dở rồi :))) nhập lại đê";
+            }
+        }
+        //reverse
+        function reverse(){
+           var number = document.getElementById("number").value;
+        //    var arr = [];
+        //    for(var i = 0;i<= number;i++){
+        //         arr.push(i);
+        //    }
+            var arr = makearray(number);
+            arr.reverse();
+            document.getElementById("reverse_result").innerHTML=arr;
+        }
+        //swap
+        function swap(){ // có thể dùng indexOf : tìm xong gán ngược cho nhau
+            var newValue = document.getElementById("newValue").value;
+            var number = document.getElementById("number").value;
+            // var arr = [];
+            // for(var i = 0; i <= number; i++)	{
+            //         arr.push(i);
+            //     }
+            var arr = makearray(number);
+            var x = arr[1];
+            // Array.prototype.Swap = function (array,a,b) {  
+            //     var temp = array[a];  
+            //     array[a] = array[b];  
+            //     array[b] = temp;  
+            //     return this; // trả về giá trị hoán đổi
+            // } 
+            // Swap(arr,x,newValue)
+            // alert(testString.substring(2));
+            var swapArrayElements = function (a, x, y) { //mảng a, swap x với y
+                if (a.length === 1) return a; // nếu độ dài mảng a = 1 thì trả về a
+                //ví dụ về splice: a.splice(2,0,"a","b") trong mảng a tại vị trí thứ 2: 0 xóa phần tử nào và thêm a,b vào
+                a.splice(y, 1, a.splice(x, 1, a[y])[0]); //splice bên trong : TẠI VỊ TRÍ X xóa 1 phần tử và thêm vào một phần tử mới = phần tử ở vị trí y trong mảng a
+                // splice ngoài : TẠI VỊ TRÍ Y xóa 1 và thêm vao phần tử mới
+                return a;
+            };
+            if (newValue >= arr.length) {
+                document.getElementById("swap_result").innerHTML="nhập lại New bạn êi";
+            } else {
+                swapArrayElements(arr, x, newValue);
+                document.getElementById("swap_result").innerHTML=arr;
+            }
+            
+        }
+        //tạo 1 mảng 
+        function makearray(a){
+            var arr = [];
+            for(var i = 0; i<= a;i++){
+                arr.push(i);
+            }
+            return arr;
+        }
+    </script>
+    <h1>Ví dụ về D trong S.O.L.I.D</h1>
+    <h1><a href="https://nhungdongcodevui.com/2017/02/01/tim-hieu-solid-de-tro-thanh-dev-chat/">Link</a></h1>
+    <img src="./Dependency-Inversion-principle.PNG" alt="">
+    
+</body>
+<!-- https://fullstack.edu.vn/courses/html-css -->
+<!-- tìm hiểu SOLID, DRY -->
+<!-- S Single Responsibility : Mỗi lớp chỉ nên chịu trách nhiệm về một nhiệm vụ cụ thể nào đó mà thôi.
+     O Open-Closed principle : Chúng ta nên hạn chế việc chỉnh sửa bên trong một class hoặc module có sẵn, 
+        thay vào đó hãy xem xét mở rộng chúng bằng kế thừa.
+        Làm như vậy sẽ tránh được các tình huống làm hỏng tính ổn định của chương trình đang có.
+     L Liskov substitution : Trong một chương trình, các đối tượng trong một chương trình có thể được thay thế bởi các class con
+        mà không làm thay đổi tính đúng đắn của chương trình. 
+     I Interface segregation principle : Nếu Interface quá lớn thì nên tách thành các interface nhỏ hơn.
+     D Dependency inversion principle : Các thành phần hệ thống (class, module, …) chỉ nên phụ thuộc vào những abstractions(sự trừu tượng),
+        không nên phụ thuộc vào các concretions hoặc implementations cụ thể.
+     DRY : Không lặp lại chính mình
+    -->
+</html>
